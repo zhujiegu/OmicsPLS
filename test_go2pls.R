@@ -70,12 +70,12 @@ fit <- o2m(X, Y, r, rx, ry, sparsity = T, groupx=groupx, groupy=groupy, keepx = 
 #################################
 # CV for sparsity
 # SO2PLS
-cv <- cv_sparsity(X, Y, r, rx, ry, lambda_kcv = 2, 
+cv <- crossval_sparsity(X, Y, r, rx, ry, nr_folds = 2, 
                   keepx_seq = seq(50,1000, by=150), keepy_seq = 3:5)
 cv
 
 # GO2PLS
-cv <- cv_sparsity(X, Y, r, rx, ry, lambda_kcv = 5, groupx = groupx, groupy = groupy,
+cv <- crossval_sparsity(X, Y, r, rx, ry, nr_folds = 5, groupx = groupx, groupy = groupy,
                   keepx_seq = seq(10,100, by=10), keepy_seq = 2:4)
 cv
 fit <- o2m(X, Y, r, rx, ry, sparsity = T, groupx=groupx, groupy=groupy, 
